@@ -1,24 +1,32 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import logo from "@/assets/logo.webp";
 
-export default function Loader({loading, setLoading}) {
+export default function Loader({ loading, setLoading }) {
+  const [show, setShow] = useState(false);
 
 
   useEffect(() => {
     setTimeout(() => {
+      setShow(true);
+    }
+    , 1000); 
+    setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 2100);
   }, []);
 
   return (
     <motion.div
-      animate={{
-        opacity: loading ? 1 : 0,
-        display: loading ? "flex" : "none",
+      exit={{
+        opacity: 0,
+        transition: {
+          delay: 0.4,
+        },
+        // display: loading ? "flex" : "none",
       }}
       transition={{
         delay: 2,
@@ -42,24 +50,26 @@ export default function Loader({loading, setLoading}) {
           />
         </motion.div>
 
-        {Array(15)
-          .fill(" ")
-          .map((e, i) => {
-            return (
-              <motion.div
-                animate={{
-                  rotateY: loading ? 0 : -90,
-                  transition: {
-                    duration: 0.4,
-                    ease: "easeInOut",
-                    delay: i * 0.05,
-                  },
-                }}
-                key={i}
-                className="w-[10vw] h-full bg-white text-black "
-              ></motion.div>
-            );
-          })}
+        <AnimatePresence>
+          {!show && Array(15)
+            .fill(" ")
+            .map((e, i) => {
+              return (
+                <motion.div
+                  exit={{
+                    rotateY: -90,
+                    transition: {
+                      duration: 0.4,
+                      ease: "easeInOut",
+                      delay: i * 0.05,
+                    },
+                  }}
+                  key={i}
+                  className="w-[10vw] h-full bg-white text-black "
+                ></motion.div>
+              );
+            })}
+        </AnimatePresence>
       </div>
     </motion.div>
   );

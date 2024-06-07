@@ -26,9 +26,10 @@ function Projects() {
 
         <div
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='black' stroke-width='3' stroke-dasharray='15%2c 15%2c 1' stroke-dashoffset='27' stroke-linecap='square'/%3e%3c/svg%3e")`,
+//             backgroundImage: `background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='25' ry='25' stroke='%23333' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+// border-radius: 25px;`,
           }}
-          className="  w-full h-[447px] lg:h-full bg-transparent rounded-2xl md:rounded-[50px] relative flex flex-col justify-center items-center gap-5  "
+          className="  w-full bg-[#0038FF]/5 h-[447px] lg:h-full  rounded-2xl md:rounded-[50px] relative flex flex-col justify-center items-center gap-5  "
         >
           <motion.svg
             animate={{ rotate: 360 }}

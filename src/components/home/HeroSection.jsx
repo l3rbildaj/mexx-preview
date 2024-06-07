@@ -5,6 +5,7 @@ import BlurIn from "../ui/TextBlur";
 import dynamic from 'next/dynamic';
 import {  useEffect, useState } from "react";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import HeroVideo from "./HeroVideo";
 
 
 const WebglEffect = dynamic(() => import('./WebglEffect'), { ssr: false });
@@ -151,7 +152,7 @@ function HeroSection() {
           </button>
         </div>
   
-           {/* <HeroVideo /> */}
+           <HeroVideo />
     
       </div>
     </>
